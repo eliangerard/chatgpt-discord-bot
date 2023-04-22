@@ -1,0 +1,7 @@
+{
+    "token" : "DISCORD BOT TOKEN",
+    "client" : "DISCORD BOT CLIENT ID",
+    "gptAccessToken":"GET IT FROM HERE WHILE LOGGED IN https://chat.openai.com/api/auth/session",
+    "voicePrefix" : "THE PHRASE FOR ACTIVATE SPEECH DETECTION",
+    "lang": "es-MX"
+}
