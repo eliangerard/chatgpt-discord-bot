@@ -7,7 +7,7 @@ let audioPlayer=new AudioPlayer();
 const preSay = (message, client) => {
     if(message.length > 199){
         const regex = /.{1,199}\b/g;
-        const subcadenas = mensaje.match(regex);
+        const subcadenas = message.match(regex);
         client.connection.subscribe(audioPlayer);
 
         subcadenas.forEach(async element => {
