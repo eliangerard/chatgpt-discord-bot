@@ -4,7 +4,7 @@
     "@discordjs/voice": "^0.16.0",
     "chatgpt": "^5.2.2",
     "discord-speech-recognition": "^3.3.1",
-    "discord-tts": "^1.2.2",
+    "discord-tts": "github:eliangerard/discord-tts",
     "discord.js": "^14.9.0",
     "ffmpeg-static": "^5.1.0",
     "libsodium-wrappers": "^0.7.11"
