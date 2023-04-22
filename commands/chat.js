@@ -4,7 +4,7 @@ const { AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnecti
 const discordTTS = require("discord-tts");
 let audioPlayer=new AudioPlayer();
 
-const preSay = (message) => {
+const preSay = (message, client) => {
     if(message.length > 199){
         const regex = /.{1,199}\b/g;
         const subcadenas = mensaje.match(regex);
@@ -15,6 +15,7 @@ const preSay = (message) => {
             await say(element);
         });
     }
+    say(message, client)
 }
 const say = async (message, client) => {
     const stream = discordTTS.getVoiceStream(message, { lang: client.config.langTTS });
@@ -70,7 +71,7 @@ module.exports = {
         })
         let res;
         res = await api.sendMessage(content);
-
+        console.log(res);
         return preSay(res.text, client);
     }
 };
