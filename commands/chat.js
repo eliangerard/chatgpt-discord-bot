@@ -5,16 +5,15 @@ const discordTTS = require("discord-tts");
 let audioPlayer=new AudioPlayer();
 
 const preSay = (message, client) => {
-    if(message.length > 199){
-        const regex = /.{1,199}\b/g;
-        const subcadenas = message.match(regex);
-        client.connection.subscribe(audioPlayer);
+    // if(message.length > 199){
+    //     const regex = /.{1,199}\b/g;
+    //     const subcadenas = message.match(regex);
 
-        subcadenas.forEach(async element => {
-            console.log(element.length);
-            await say(element);
-        });
-    }
+    //     subcadenas.forEach(async element => {
+    //         console.log(element.length);
+    //         await say(element, client);
+    //     });
+    // }
     say(message, client)
 }
 const say = async (message, client) => {
