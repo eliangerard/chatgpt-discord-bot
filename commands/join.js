@@ -11,7 +11,7 @@ module.exports = {
             return interaction.editReply({ ephemeral: true, content: "No estás en un canal de voz" });
         
         const voice = interaction.member.voice;
-        const connection = joinVoiceChannel({
+        client.connection = joinVoiceChannel({
             channelId: voice.channel.id,
             guildId: voice.channel.guild.id,
             adapterCreator: voice.channel.guild.voiceAdapterCreator,

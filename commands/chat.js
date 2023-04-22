@@ -3,11 +3,12 @@ const { addSpeechEvent } = require("discord-speech-recognition");
 const { AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel } = require("@discordjs/voice");
 const discordTTS = require("discord-tts");
 let audioPlayer=new AudioPlayer();
+
 const say = (message, client) => {
-    const stream = discordTTS.getVoiceStream(message, { lang: client.config.lang });
+    const stream = discordTTS.getVoiceStream(message, { lang: client.config.langTTS });
     const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume: true });
 
-    connection.subscribe(audioPlayer);
+    client.connection.subscribe(audioPlayer);
     audioPlayer.play(audioResource);
 }
 
