@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const { addSpeechEvent } = require("discord-speech-recognition");
 const { AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel } = require("@discordjs/voice");
 const discordTTS = require("discord-tts");
-
+let audioPlayer=new AudioPlayer();
 const say = (message) => {
     const stream = discordTTS.getVoiceStream(message, { lang: config.lang });
     const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume: true });
