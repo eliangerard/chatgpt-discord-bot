@@ -34,7 +34,7 @@ module.exports = {
         .setDescription('Envía un mensaje a chat gpt')
         .addStringOption(option => option.setName('query').setDescription('Tu mensaje').setRequired(true)),
     inVoice: false,
-    voiceCommand: ['chat'],
+    voiceCommand: ['chat', 'SAT', 'Isaac'],
     async execute(interaction, client) {
         const { ChatGPTUnofficialProxyAPI } = await import('chatgpt');
         const query = interaction.options.getString('query');
