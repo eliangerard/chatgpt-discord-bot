@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
 const {AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel} = require("@discordjs/voice");
-const discordTTS = require("discord-tts");
 const { getAudioBuffer } = require("simple-tts-mp3");
 const config = require("../config.json");
 let connection;

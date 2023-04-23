@@ -1,24 +1,11 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { addSpeechEvent } = require("discord-speech-recognition");
 const { AudioPlayer, createAudioResource, StreamType, entersState, VoiceConnectionStatus, joinVoiceChannel } = require("@discordjs/voice");
-const discordTTS = require("discord-tts");
+const { getAudioBuffer } = require("simple-tts-mp3");
 let audioPlayer=new AudioPlayer();
 
-const preSay = (message, client) => {
-    // if(message.length > 199){
-    //     const regex = /.{1,199}\b/g;
-    //     const subcadenas = message.match(regex);
-
-    //     subcadenas.forEach(async element => {
-    //         console.log(element.length);
-    //         await say(element, client);
-    //     });
-    // }
-    say(message, client)
-}
 const say = async (message, client) => {
-    const stream = discordTTS.getVoiceStream(message, { lang: client.config.langTTS });
-    const audioResource = createAudioResource(stream, { inputType: StreamType.Arbitrary, inlineVolume: true });
+    const audioResource = createAudioResource(getAudioBuffer(message, client.config.lang));
 
     client.connection.subscribe(audioPlayer);
     audioPlayer.play(audioResource);
@@ -71,6 +58,6 @@ module.exports = {
         let res;
         res = await api.sendMessage(content);
         console.log(res);
-        return preSay(res.text, client);
+        return say(res.text, client);
     }
 };
