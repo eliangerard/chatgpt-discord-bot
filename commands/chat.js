@@ -56,6 +56,7 @@ module.exports = {
             apiReverseProxyUrl: "https://ai.fakeopen.com/api/conversation"
         })
         let res;
+        console.log("Content: -"+content);
         res = await api.sendMessage(content);
         console.log(res);
         return say(res.text, client);
