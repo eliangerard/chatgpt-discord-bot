@@ -48,7 +48,7 @@ module.exports = {
     },
     async executeVoice(content, msg, client) {
         const { ChatGPTUnofficialProxyAPI } = await import('chatgpt');
-        say("Procesando la pregunta de "+msg.author.username);
+        say("Procesando la pregunta de "+msg.author.username, client);
         const api = new ChatGPTUnofficialProxyAPI({
             accessToken: client.config.gptAccessToken,
             apiReverseProxyUrl: "https://ai.fakeopen.com/api/conversation"
