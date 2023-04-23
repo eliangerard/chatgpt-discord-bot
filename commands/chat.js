@@ -5,7 +5,7 @@ const { getAudioBuffer } = require("simple-tts-mp3");
 let audioPlayer=new AudioPlayer();
 
 const say = async (message, client) => {
-    const audioResource = createAudioResource(getAudioBuffer(message, client.config.lang));
+    const audioResource = createAudioResource(getAudioBuffer(message, client.config.langTTS));
 
     client.connection.subscribe(audioPlayer);
     audioPlayer.play(audioResource);
