@@ -9,8 +9,6 @@ const say = async (message, client) => {
 
     client.connection.subscribe(audioPlayer);
     audioPlayer.play(audioResource);
-
-    await new Promise((resolve) => audioPlayer.on('idle', resolve));
 }
 
 let conversationId, parentMessageId;
@@ -57,8 +55,14 @@ module.exports = {
         })
         let res;
         console.log("Content: -"+content);
-        res = await api.sendMessage(content);
-        console.log(res);
-        return say(res.text, client);
+        let response = "";
+        try {
+            res = await api.sendMessage(content, { onProgress : (progress) => {
+                response = progress.text;
+            }});
+            return say(res.text, client);
+        } catch(e) {
+            return say(response, client);
+        }
     }
 };
